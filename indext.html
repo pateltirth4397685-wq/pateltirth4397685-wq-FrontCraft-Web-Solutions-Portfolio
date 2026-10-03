@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrontCraft Web Solutions | Modern Websites & Software Development</title>
+  
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="FrontCraft Web Solutions provides professional website development, software development, business automation, CRM, POS, billing, inventory, and custom web applications by Tirth Maheshkumar Patel.">
+  <meta name="keywords" content="website development, software development, web developer, business website, CRM software, POS software, billing software, inventory software, business automation, Tirth Patel, FrontCraft Web Solutions">
+  <meta name="author" content="Tirth Maheshkumar Patel">
+  <link rel="canonical" href="https://frontcrafweb1.netlify.app/">
+
+  <meta property="og:title" content="FrontCraft Web Solutions | Web & Software Development">
+  <meta property="og:description" content="Modern Websites. Smart Software. Better Business. Affordable & Custom Web Solutions by Tirth Patel.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://frontcrafweb1.netlify.app/">
+  <meta property="og:site_name" content="FrontCraft Web Solutions">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FrontCraft Web Solutions">
+  <meta name="twitter:description" content="Professional Web Design • Software Development • Business Automation">
+
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS & Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --bg-navy: #0B132B;
+      --card-navy: #1C2541;
+      --navy-light: #151D36;
+      --accent-blue: #3A506B;
+      --bright-blue: #0077FF;
+      --cyan: #00F5D4;
+      --cyan-glow: rgba(0, 245, 212, 0.25);
+      --purple-glow: rgba(112, 0, 255, 0.15);
+      --text-main: #FFFFFF;
+      --text-muted: #94A3B8;
+      --text-light-cyan: #E0FBFC;
+      --border-cyan: rgba(0, 245, 212, 0.2);
+      --glass-bg: rgba(28, 37, 65, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-navy);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-navy);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-blue);
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--cyan);
+    }
+
+    /* Typography Overrides */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Custom Glassmorphism Card Style */
+    .fc-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-cyan);
+      border-radius: 16px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fc-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 30px -10px var(--cyan-glow);
+    }
+
+    .badge-cyan {
+      background: rgba(0, 245, 212, 0.12);
+      color: var(--cyan);
+      border: 1px solid var(--cyan);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Buttons */
+    .btn-fc-primary {
+      background: linear-gradient(135deg, var(--bright-blue), var(--cyan));
+      color: var(--bg-navy);
+      font-weight: 700;
+      padding: 12px 26px;
+      border-radius: 10px;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 245, 212, 0.25);
+    }
+
+    .btn-fc-primary:hover {
+      color: var(--bg-navy);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 245, 212, 0.45);
+    }
+
+    .btn-fc-secondary {
+      background: transparent;
+      border: 1px solid var(--bright-blue);
+      color: var(--text-main);
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-fc-secondary:hover {
+      background: rgba(0, 119, 255, 0.15);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .btn-fc-whatsapp {
+      background: #25D366;
+      color: #000;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-fc-whatsapp:hover {
+      color: #000;
+      background: #20ba5a;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Navbar */
+    .fc-navbar {
+      background: rgba(11, 19, 43, 0.9);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(0, 245, 212, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      background: linear-gradient(135deg, var(--card-navy), var(--bright-blue));
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text-main {
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-text-sub {
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .nav-link {
+      color: var(--text-muted) !important;
+      font-weight: 500;
+      padding: 8px 16px !important;
+      transition: all 0.2s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--cyan) !important;
+    }
+
+    /* Hero Illustration CSS Graphic */
+    .hero-graphic {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      background: linear-gradient(135deg, #1C2541, #0B132B);
+      border: 1px solid var(--border-cyan);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .window-header {
+      background: #151D36;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .window-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .code-lines {
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--text-light-cyan);
+    }
+
+    .code-keyword { color: #FF79C6; }
+    .code-func { color: #50FA7B; }
+    .code-str { color: #F1FA8C; }
+    .code-var { color: var(--cyan); }
+
+    .floating-card-badge {
+      position: absolute;
+      bottom: 25px;
+      right: 25px;
+      background: rgba(11, 19, 43, 0.95);
+      border: 1px solid var(--cyan);
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,245,212,0.2);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 50px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--text-main);
+      margin-top: 10px;
+    }
+
+    .section-title span {
+      color: var(--cyan);
+    }
+
+    /* Pricing Tables / Cards */
+    .price-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .price-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin: 15px 0;
+    }
+
+    /* Service Check Box Items */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 15px;
+    }
+
+    .checklist-item {
+      background: var(--navy-light);
+      border: 1px solid rgba(0, 245, 212, 0.1);
+      padding: 12px 18px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-light-cyan);
+    }
+
+    .checklist-item i {
+      color: var(--cyan);
+    }
+
+    /* Portfolio Filters */
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--accent-blue);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--cyan);
+      color: var(--bg-navy);
+      border-color: var(--cyan);
+    }
+
+    /* Modal / Floating Popup */
+    .fc-popup-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 19, 43, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1050;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .fc-popup-card {
+      background: linear-gradient(145deg, var(--card-navy), var(--bg-navy));
+      border: 2px solid var(--cyan);
+      border-radius: 20px;
+      max-width: 580px;
+      width: 100%;
+      padding: 35px;
+      position: relative;
+      box-shadow: 0 0 40px var(--cyan-glow);
+      animation: modalFadeIn 0.3s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .floating-demo-trigger {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
+      background: linear-gradient(135deg, var(--bright-blue), var(--cyan));
+      color: var(--bg-navy);
+      font-weight: 800;
+      padding: 12px 22px;
+      border-radius: 30px;
+      box-shadow: 0 5px 25px rgba(0, 245, 212, 0.4);
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .floating-demo-trigger:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fc-navbar sticky-top">
+    <div class="container">
+      <!-- Left Side Brand Logo -->
+      <a class="brand-logo" href="#home">
+        <div class="brand-icon">&lt;/&gt;</div>
+        <div class="brand-text">
+          <span class="brand-text-main">FRONTCRAFT</span>
+          <span class="brand-text-sub">WEB SOLUTIONS</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#fcNavbar">
+        <i class="bi bi-list fs-1 text-cyan" style="color: var(--cyan);"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="fcNavbar">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="d-flex gap-2">
+          <button class="btn-fc-primary" onclick="openDemoModal()">
+            <i class="bi bi-rocket-takeoff-fill"></i> Get Free Demo
+          </button>
+          <a href="https://wa.me/919104303934?text=Hello%20Tirth%2C%20I%20am%20interested%20in%20your%20services." target="_blank" class="btn-fc-whatsapp d-none d-xl-inline-flex">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="d-flex align-items-center min-vh-100">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-7">
+          <span class="badge-cyan mb-3">
+            <i class="bi bi-code-slash"></i> WEB & SOFTWARE DEVELOPMENT
+          </span>
+          
+          <h1 class="display-4 text-white mb-3">
+            Modern Websites & Software <br>
+            <span style="color: var(--cyan);">For Growing Businesses</span>
+          </h1>
+          
+          <p class="fs-5 text-muted mb-4">
+            Hi, I'm <strong class="text-white">Tirth Maheshkumar Patel</strong>, a freelance web developer at FrontCraft Web Solutions. I build modern, responsive, mobile-friendly websites, custom business software, and automation tools that accelerate company growth.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="#projects" class="btn-fc-primary">
+              <i class="bi bi-eye-fill"></i> View Portfolio
+            </a>
+            <button class="btn-fc-secondary" onclick="openDemoModal()">
+              <i class="bi bi-laptop"></i> Get Free Demo
+            </button>
+            <a href="https://wa.me/919104303934?text=Hello%20Tirth%2C%20I%20am%20interested%20in%20your%20services." target="_blank" class="btn-fc-whatsapp">
+              <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+
+          <div class="d-flex flex-wrap gap-4 pt-3 border-top border-secondary border-opacity-25 text-muted small">
+            <div><i class="bi bi-telephone-fill text-cyan me-2"></i><a href="tel:9104303934" class="text-white text-decoration-none">9104303934</a></div>
+            <div><i class="bi bi-envelope-fill text-cyan me-2"></i><a href="mailto:frontcraftdev837@gmail.com" class="text-white text-decoration-none">frontcraftdev837@gmail.com</a></div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hero-graphic">
+            <div class="window-header">
+              <div class="window-dot" style="background:#FF5F56;"></div>
+              <div class="window-dot" style="background:#FFBD2E;"></div>
+              <div class="window-dot" style="background:#27C93F;"></div>
+              <span class="ms-2 text-muted small mono">FrontCraftApp.js</span>
+            </div>
+            <div class="code-lines">
+              <div><span class="code-keyword">const</span> <span class="code-var">developer</span> = {</div>
+              <div class="ps-3"><span class="code-var">name</span>: <span class="code-str">"Tirth M. Patel"</span>,</div>
+              <div class="ps-3"><span class="code-var">agency</span>: <span class="code-str">"FrontCraft Web Solutions"</span>,</div>
+              <div class="ps-3"><span class="code-var">speciality</span>: [<span class="code-str">"Websites"</span>, <span class="code-str">"Software"</span>, <span class="code-str">"Automation"</span>],</div>
+              <div class="ps-3"><span class="code-var">quality</span>: <span class="code-str">"100% Mobile Responsive"</span>,</div>
+              <div class="ps-3"><span class="code-var">status</span>: <span class="code-str">"Available for Projects"</span></div>
+              <div>};</div>
+              <br>
+              <div><span class="code-keyword">function</span> <span class="code-func">buildBusinessGrowth</span>() {</div>
+              <div class="ps-3"><span class="code-keyword">return</span> <span class="code-var">developer</span>.<span class="code-func">deliverHighQualityCode</span>();</div>
+              <div>}</div>
+            </div>
+            <div class="floating-card-badge">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-cyan fs-4"></i>
+                <div>
+                  <div class="fw-bold text-white small">Free Concept Available</div>
+                  <div class="text-muted extra-small" style="font-size:0.75rem;">100% Custom Tailored</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECREATED PROMOTIONAL BANNER SECTION -->
+  <section class="py-4">
+    <div class="container">
+      <div class="fc-card p-4 p-md-5" style="border: 2px solid var(--cyan);">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-8">
+            <span class="badge-cyan mb-2"><i class="bi bi-gift-fill"></i> EXCLUSIVE OFFER</span>
+            <h2 class="text-white mb-2">Free Website Concept / Demo</h2>
+            <p class="text-light-cyan mb-3 fs-5">
+              Hi, I'm Tirth Patel, a freelance web developer at FrontCraft Web Solutions. I help businesses build modern, mobile-friendly websites that strengthen their online presence and generate customer enquiries.
+            </p>
+            <p class="text-muted mb-0">Would you like me to share a customized demo concept and recent portfolio projects with you?</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <div class="d-flex flex-column gap-2">
+              <button onclick="openDemoModal()" class="btn-fc-primary justify-content-center">
+                <i class="bi bi-box-arrow-up-right"></i> Claim Free Concept
+              </button>
+              <a href="tel:9104303934" class="btn-fc-secondary justify-content-center">
+                <i class="bi bi-telephone"></i> Call 9104303934
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6">
+          <span class="badge-cyan">ABOUT US</span>
+          <h2 class="section-title">Crafting Modern Digital Solutions For <span>Your Business</span></h2>
+          <p class="text-muted mt-3">
+            FrontCraft Web Solutions provides professional website development, software development, and business automation solutions. We design responsive, modern, and business-focused digital solutions for shops, restaurants, schools, institutes, industrial businesses, startups, and service providers.
+          </p>
+          <div class="row g-3 mt-3">
+            <div class="col-6">
+              <div class="p-3 fc-card h-100">
+                <i class="bi bi-lightning-charge-fill fs-3 text-cyan mb-2"></i>
+                <h6 class="text-white">Fast Performance</h6>
+                <p class="text-muted small mb-0">Optimized code for blazing speed and high conversion.</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 fc-card h-100">
+                <i class="bi bi-phone-fill fs-3 text-cyan mb-2"></i>
+                <h6 class="text-white">Mobile First</h6>
+                <p class="text-muted small mb-0">Seamless experience on smartphones, tablets & desktop.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="fc-card p-4">
+            <h4 class="text-cyan mb-3"><i class="bi bi-bullseye"></i> Our Core Focus</h4>
+            <ul class="list-unstyled d-flex flex-column gap-3 text-light-cyan mb-0">
+              <li class="d-flex align-items-center gap-3">
+                <i class="bi bi-check-circle-fill text-cyan"></i>
+                <span>Modern & Scalable Architecture</span>
+              </li>
+              <li class="d-flex align-items-center gap-3">
+                <i class="bi bi-check-circle-fill text-cyan"></i>
+                <span>Affordable & Transparent Pricing</span>
+              </li>
+              <li class="d-flex align-items-center gap-3">
+                <i class="bi bi-check-circle-fill text-cyan"></i>
+                <span>Custom Software Tailored to Business Workflows</span>
+              </li>
+              <li class="d-flex align-items-center gap-3">
+                <i class="bi bi-check-circle-fill text-cyan"></i>
+                <span>WhatsApp & Payment Gateway Integrations</span>
+              </li>
+              <li class="d-flex align-items-center gap-3">
+                <i class="bi bi-check-circle-fill text-cyan"></i>
+                <span>Complete Maintenance & Support Support</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="bg-navy-light">
+    <div class="container">
+      <div class="text-center section-header">
+        <span class="badge-cyan">WHAT WE OFFER</span>
+        <h2 class="section-title">Comprehensive <span>Development Services</span></h2>
+      </div>
+
+      <div class="row g-4">
+        <!-- 12 Service Cards -->
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-window-stack fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">Website Development</h5>
+            <p class="text-muted small">Professional responsive websites for businesses, shops, restaurants & startups.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-cpu fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">Software Development</h5>
+            <p class="text-muted small">Custom business software tailored around your exact operational workflows.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-robot fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">Business Automation</h5>
+            <p class="text-muted small">Automate repetitive daily tasks with intelligent software solutions.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-people-fill fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">CRM Development</h5>
+            <p class="text-muted small">Manage leads, client interactions, pipelines, and customer relationship data.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-receipt-cutoff fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">POS & Billing Systems</h5>
+            <p class="text-muted small">Fast checkout, invoice generation, tax calculations, and receipts printing.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-boxes fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">Inventory Management</h5>
+            <p class="text-muted small">Real-time stock tracking, warehouse management, and low-stock alerts.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-calendar-check fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">Booking Systems</h5>
+            <p class="text-muted small">Automated online appointments, slot booking, and scheduling platforms.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-mortarboard-fill fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">School / Tuition Management</h5>
+            <p class="text-muted small">Student records, fee management, attendance tracking, and parent reports.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-cup-hot-fill fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">Restaurant Software</h5>
+            <p class="text-muted small">Digital menus, KOT management, order management, and table booking.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-code-square fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">Custom Web Applications</h5>
+            <p class="text-muted small">Complex web applications, SaaS platforms, and enterprise solutions.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-brush fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">Website Redesign</h5>
+            <p class="text-muted small">Modernize existing websites with sleek UI/UX and mobile optimization.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 h-100">
+            <i class="bi bi-shield-check fs-2 text-cyan mb-3"></i>
+            <h5 class="text-white">Maintenance & Support</h5>
+            <p class="text-muted small">Regular updates, security patches, backups, and technical support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="pricing">
+    <div class="container">
+      <div class="text-center section-header">
+        <span class="badge-cyan">TRANSPARENT RATES</span>
+        <h2 class="section-title">Affordable <span>Pricing Packages</span></h2>
+        <p class="text-muted">Starting prices listed below. Final cost depends on specific project scope.</p>
+      </div>
+
+      <!-- Website Development Pricing -->
+      <h3 class="text-white mb-4 border-bottom border-cyan pb-2"><i class="bi bi-globe text-cyan me-2"></i> Website Development</h3>
+      <div class="row g-3 mb-5">
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 price-card">
+            <div>
+              <h5 class="text-white">Basic Business Website</h5>
+              <div class="price-value">₹2,999</div>
+              <p class="text-muted small">Essential online presence for small shops and local services.</p>
+            </div>
+            <button onclick="openDemoModal()" class="btn-fc-secondary w-100 justify-content-center mt-3">Select Plan</button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 price-card" style="border-color: var(--cyan);">
+            <div>
+              <span class="badge-cyan mb-2">POPULAR</span>
+              <h5 class="text-white">Professional Business</h5>
+              <div class="price-value">₹4,999</div>
+              <p class="text-muted small">Ideal for growing companies needing WhatsApp & Inquiry forms.</p>
+            </div>
+            <button onclick="openDemoModal()" class="btn-fc-primary w-100 justify-content-center mt-3">Select Plan</button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-4 price-card">
+            <div>
+              <h5 class="text-white">Premium Business Website</h5>
+              <div class="price-value">₹7,999</div>
+              <p class="text-muted small">Full-featured, dynamic website with dynamic content sections.</p>
+            </div>
+            <button onclick="openDemoModal()" class="btn-fc-secondary w-100 justify-content-center mt-3">Select Plan</button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="fc-card p-3 price-card">
+            <h6 class="text-white">Landing Page</h6>
+            <div class="price-value fs-4">₹1,999</div>
+            <span class="text-muted small">High-converting page</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="fc-card p-3 price-card">
+            <h6 class="text-white">Restaurant Website</h6>
+            <div class="price-value fs-4">₹4,999</div>
+            <span class="text-muted small">With online menu</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="fc-card p-3 price-card">
+            <h6 class="text-white">Portfolio Website</h6>
+            <div class="price-value fs-4">₹2,999</div>
+            <span class="text-muted small">For freelancers & artists</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="fc-card p-3 price-card">
+            <h6 class="text-white">E-commerce Website</h6>
+            <div class="price-value fs-4">₹9,999</div>
+            <span class="text-muted small">Online store setup</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="fc-card p-3 price-card">
+            <h6 class="text-white">Booking Website</h6>
+            <div class="price-value fs-4">₹9,999</div>
+            <span class="text-muted small">Slots & Calendar</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="fc-card p-3 price-card">
+            <h6 class="text-white">Industrial / B2B Website</h6>
+            <div class="price-value fs-4">₹6,999</div>
+            <span class="text-muted small">Product catalogs</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="fc-card p-3 price-card">
+            <h6 class="text-white">School / Institute</h6>
+            <div class="price-value fs-4">₹7,999</div>
+            <span class="text-muted small">Notices & Info</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="fc-card p-3 price-card">
+            <h6 class="text-white">Custom Web Application</h6>
+            <div class="price-value fs-4">₹9,999+</div>
+            <span class="text-muted small">Tailored features</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Software Development Pricing -->
+      <h3 class="text-white mb-4 border-bottom border-cyan pb-2"><i class="bi bi-display text-cyan me-2"></i> Software Development</h3>
+      <div class="row g-3 mb-5">
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">Billing Software</span>
+              <span class="text-cyan fw-bold fs-5">₹4,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">Inventory Management</span>
+              <span class="text-cyan fw-bold fs-5">₹6,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">Stock Management</span>
+              <span class="text-cyan fw-bold fs-5">₹5,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">POS Billing Software</span>
+              <span class="text-cyan fw-bold fs-5">₹7,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">CRM Software</span>
+              <span class="text-cyan fw-bold fs-5">₹9,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">School / Tuition Management</span>
+              <span class="text-cyan fw-bold fs-5">₹9,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">Attendance Management</span>
+              <span class="text-cyan fw-bold fs-5">₹6,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">Employee Management</span>
+              <span class="text-cyan fw-bold fs-5">₹7,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">Restaurant Management / POS</span>
+              <span class="text-cyan fw-bold fs-5">₹9,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">Accounting Software</span>
+              <span class="text-cyan fw-bold fs-5">₹9,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">Business Management System</span>
+              <span class="text-cyan fw-bold fs-5">₹14,999+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="fc-card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-white fw-bold">Custom Web Application</span>
+              <span class="text-cyan fw-bold fs-5">₹14,999+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design, Redesign & Maintenance -->
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="fc-card p-4 h-100">
+            <h4 class="text-white mb-3"><i class="bi bi-palette text-cyan me-2"></i> Design & Redesign</h4>
+            <div class="d-flex flex-column gap-2">
+              <div class="d-flex justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                <span>Website Redesign</span>
+                <strong class="text-cyan">₹2,999+</strong>
+              </div>
+              <div class="d-flex justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                <span>UI/UX Design</span>
+                <strong class="text-cyan">₹2,999+</strong>
+              </div>
+              <div class="d-flex justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                <span>Existing Website Fixes</span>
+                <strong class="text-cyan">₹999+</strong>
+              </div>
+              <div class="d-flex justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                <span>Mobile Responsive Upgrade</span>
+                <strong class="text-cyan">₹1,999+</strong>
+              </div>
+              <div class="d-flex justify-content-between py-2">
+                <span>Custom Dashboard Design</span>
+                <strong class="text-cyan">₹4,999+</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="fc-card p-4 h-100">
+            <h4 class="text-white mb-3"><i class="bi bi-tools text-cyan me-2"></i> Maintenance & Support</h4>
+            <div class="d-flex flex-column gap-2">
+              <div class="d-flex justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                <span>Basic Website Maintenance</span>
+                <strong class="text-cyan">₹999/month</strong>
+              </div>
+              <div class="d-flex justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                <span>Business Website Maintenance</span>
+                <strong class="text-cyan">₹1,999/month</strong>
+              </div>
+              <div class="d-flex justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                <span>Software Maintenance</span>
+                <strong class="text-cyan">₹2,999/month</strong>
+              </div>
+              <div class="d-flex justify-content-between py-2">
+                <span>Custom Support Package</span>
+                <strong class="text-cyan">₹4,999/month+</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-muted small mt-4">
+        * All prices are starting prices. Final pricing depends on project requirements, features, integrations, content, hosting, and deployment needs.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE CAN BUILD CHECKLIST -->
+  <section class="bg-navy-light py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h3 class="text-white">What We Can Build For You</h3>
+        <p class="text-muted">Features & Modules Available In Our Systems</p>
+      </div>
+
+      <div class="checklist-grid">
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Responsive Mobile Design</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> WhatsApp Enquiry Integration</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Contact & Enquiry Forms</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Google Maps Integration</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Admin Dashboard</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Login & User Management</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Database Integration</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Online Booking System</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Payment Gateway Setup</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Invoice & Billing System</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Reports & Analytics</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> PDF Export</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Excel Export</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> CSV Import / Export</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Search & Filter Systems</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> REST API Integration</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Business Automation</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Website Redesign</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Bug Fixing & Maintenance</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> SEO-Friendly Structure</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Speed Optimization</div>
+        <div class="checklist-item"><i class="bi bi-check-circle-fill"></i> Deployment & Hosting</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO / PROJECTS SECTION -->
+  <section id="projects">
+    <div class="container">
+      <div class="text-center section-header">
+        <span class="badge-cyan">MY RECENT PROJECTS</span>
+        <h2 class="section-title">Featured <span>Real-World Projects</span></h2>
+        <p class="text-muted">Explore websites and software applications developed by FrontCraft Web Solutions.</p>
+        
+        <!-- Filter Tabs -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+          <button class="filter-btn active" onclick="filterProjects('all', this)">ALL</button>
+          <button class="filter-btn" onclick="filterProjects('website', this)">WEBSITES</button>
+          <button class="filter-btn" onclick="filterProjects('software', this)">SOFTWARE</button>
+          <button class="filter-btn" onclick="filterProjects('industrial', this)">INDUSTRIAL</button>
+          <button class="filter-btn" onclick="filterProjects('inventory', this)">INVENTORY</button>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Project 1 -->
+        <div class="col-md-6 project-card-item" data-category="website software portfolio">
+          <div class="fc-card p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge-cyan">Portfolio</span>
+                <span class="text-muted small">Live</span>
+              </div>
+              <h4 class="text-white">FrontCraft Web Solutions Portfolio</h4>
+              <p class="text-muted small">Official freelance developer portfolio showcasing web development, software, business automation, and services.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge bg-secondary opacity-50">HTML</span>
+                <span class="badge bg-secondary opacity-50">CSS</span>
+                <span class="badge bg-secondary opacity-50">JavaScript</span>
+                <span class="badge bg-secondary opacity-50">Bootstrap 5</span>
+              </div>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="https://frontcrafweb1.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-fc-primary w-100 justify-content-center">
+                <i class="bi bi-box-arrow-up-right"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-md-6 project-card-item" data-category="software industrial">
+          <div class="fc-card p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge-cyan">Industrial Web App</span>
+                <span class="text-muted small">Live</span>
+              </div>
+              <h4 class="text-white">AAT — Air Compressor App</h4>
+              <p class="text-muted small">Business-focused industrial web application for Adhyashakti Air Technology and air compressor solutions.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge bg-secondary opacity-50">Web App</span>
+                <span class="badge bg-secondary opacity-50">Authentication</span>
+                <span class="badge bg-secondary opacity-50">Dashboard</span>
+              </div>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="https://app-aat.netlify.app/auth" target="_blank" rel="noopener noreferrer" class="btn-fc-primary w-100 justify-content-center">
+                <i class="bi bi-box-arrow-up-right"></i> View Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="col-md-6 project-card-item" data-category="website industrial">
+          <div class="fc-card p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge-cyan">Industrial B2B</span>
+                <span class="text-muted small">Live</span>
+              </div>
+              <h4 class="text-white">Adhyashakti Air Technology</h4>
+              <p class="text-muted small">Professional industrial website for air compressor sales, service, repair, and engineering solutions.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge bg-secondary opacity-50">B2B Website</span>
+                <span class="badge bg-secondary opacity-50">Cloudflare Workers</span>
+                <span class="badge bg-secondary opacity-50">SEO</span>
+              </div>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="https://adhyashakti-air-technology.pateltirth4397685.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn-fc-primary w-100 justify-content-center">
+                <i class="bi bi-box-arrow-up-right"></i> View Live Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="col-md-6 project-card-item" data-category="software inventory">
+          <div class="fc-card p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge-cyan">Inventory System</span>
+                <span class="text-muted small">Live</span>
+              </div>
+              <h4 class="text-white">StockTrack Inventory System</h4>
+              <p class="text-muted small">Modern inventory and stock management application interface for managing products, stock, and business operations.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge bg-secondary opacity-50">JavaScript</span>
+                <span class="badge bg-secondary opacity-50">Stock Logic</span>
+                <span class="badge bg-secondary opacity-50">UI/UX</span>
+              </div>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="https://stocktrack-complete-frontend-only-inv.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-fc-primary w-100 justify-content-center">
+                <i class="bi bi-box-arrow-up-right"></i> View Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM DEVELOPMENT BANNER -->
+  <section class="py-4">
+    <div class="container">
+      <div class="fc-card p-5 text-center" style="background: linear-gradient(135deg, var(--card-navy), #0B132B); border-color: var(--bright-blue);">
+        <h2 class="text-white mb-3">Need A System Designed Specifically For Your Business?</h2>
+        <p class="text-muted max-w-700 mx-auto mb-4">
+          We develop custom CRM, ERP, POS, Inventory Systems, Billing Systems, School Software, Tuition Software, Restaurant Management, Attendance Systems, Booking Systems, and Enterprise Platforms.
+        </p>
+        <div class="d-inline-block badge-cyan fs-5 mb-4 px-4 py-2">Starting at ₹14,999+</div>
+        <div>
+          <a href="#contact" class="btn-fc-primary">
+            <i class="bi bi-pencil-square"></i> Request Custom Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-lg-5">
+          <span class="badge-cyan">GET IN TOUCH</span>
+          <h2 class="section-title">Let's Build Something For <span>Your Business</span></h2>
+          <p class="text-muted mt-3 mb-4">
+            Have a project in mind or need a free concept demo? Feel free to reach out directly.
+          </p>
+
+          <div class="d-flex flex-column gap-3 mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <div class="brand-icon"><i class="bi bi-person-fill"></i></div>
+              <div>
+                <div class="text-muted small">Developer Owner</div>
+                <div class="text-white fw-bold">Tirth Maheshkumar Patel</div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="brand-icon"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <div class="text-muted small">Call / WhatsApp</div>
+                <a href="tel:9104303934" class="text-cyan fw-bold text-decoration-none">9104303934</a>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="brand-icon"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <div class="text-muted small">Email Address</div>
+                <a href="mailto:frontcraftdev837@gmail.com" class="text-white fw-bold text-decoration-none">frontcraftdev837@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="brand-icon"><i class="bi bi-globe"></i></div>
+              <div>
+                <div class="text-muted small">Live Portfolio</div>
+                <a href="https://frontcrafweb1.netlify.app/" target="_blank" class="text-white text-decoration-none">frontcrafweb1.netlify.app/</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="fc-card p-4 p-md-5">
+            <h4 class="text-white mb-4"><i class="bi bi-send-fill text-cyan me-2"></i> Send An Enquiry</h4>
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label text-muted small">Your Name *</label>
+                  <input type="text" id="formName" class="form-control bg-navy-light text-white border-secondary" required placeholder="John Doe">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-muted small">Business Name</label>
+                  <input type="text" id="formBusiness" class="form-control bg-navy-light text-white border-secondary" placeholder="Company / Shop Name">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-muted small">Mobile Number *</label>
+                  <input type="tel" id="formMobile" class="form-control bg-navy-light text-white border-secondary" required placeholder="9104303934">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-muted small">Email Address</label>
+                  <input type="email" id="formEmail" class="form-control bg-navy-light text-white border-secondary" placeholder="name@example.com">
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label text-muted small">Service Required *</label>
+                  <select id="formService" class="form-select bg-navy-light text-white border-secondary" required>
+                    <option value="">Select a service</option>
+                    <option value="Website Development">Website Development</option>
+                    <option value="Software Development">Software Development</option>
+                    <option value="E-commerce Website">E-commerce Website</option>
+                    <option value="CRM Software">CRM Software</option>
+                    <option value="POS / Billing Software">POS / Billing Software</option>
+                    <option value="Inventory System">Inventory System</option>
+                    <option value="Booking System">Booking System</option>
+                    <option value="School / Tuition Software">School / Tuition Software</option>
+                    <option value="Restaurant Software">Restaurant Software</option>
+                    <option value="Website Redesign">Website Redesign</option>
+                    <option value="Custom Development">Custom Development</option>
+                  </select>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label text-muted small">Message / Requirements *</label>
+                  <textarea id="formMessage" class="form-control bg-navy-light text-white border-secondary" rows="4" required placeholder="Briefly describe your project..."></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-fc-primary w-100 justify-content-center">
+                    <i class="bi bi-whatsapp"></i> Send via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy-light pt-5 pb-4 border-top border-secondary border-opacity-25">
+    <div class="container">
+      <div class="row gy-4 mb-4">
+        <div class="col-lg-4">
+          <div class="brand-logo mb-3">
+            <div class="brand-icon">&lt;/&gt;</div>
+            <div class="brand-text">
+              <span class="brand-text-main">FRONTCRAFT</span>
+              <span class="brand-text-sub">WEB SOLUTIONS</span>
+            </div>
+          </div>
+          <p class="text-muted small">
+            FrontCraft Web Solutions provides professional website design, web development, software development, business automation, CRM, POS, billing, inventory, booking systems, and custom web applications.
+          </p>
+          <div class="text-cyan small fw-bold">Modern Websites. Smart Software. Better Business.</div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6 class="text-white mb-3">Quick Links</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 small">
+            <li><a href="#home" class="text-muted text-decoration-none">Home</a></li>
+            <li><a href="#about" class="text-muted text-decoration-none">About</a></li>
+            <li><a href="#services" class="text-muted text-decoration-none">Services</a></li>
+            <li><a href="#projects" class="text-muted text-decoration-none">Projects</a></li>
+            <li><a href="#pricing" class="text-muted text-decoration-none">Pricing</a></li>
+            <li><a href="#contact" class="text-muted text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h6 class="text-white mb-3">Services</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 small text-muted">
+            <li>Website Development</li>
+            <li>Software Development</li>
+            <li>CRM Development</li>
+            <li>POS & Billing Software</li>
+            <li>Inventory Systems</li>
+            <li>Custom Web Applications</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h6 class="text-white mb-3">Contact Developer</h6>
+          <p class="text-muted small mb-1">Tirth Maheshkumar Patel</p>
+          <p class="text-muted small mb-1"><i class="bi bi-telephone text-cyan me-1"></i> 9104303934</p>
+          <p class="text-muted small mb-1"><i class="bi bi-envelope text-cyan me-1"></i> frontcraftdev837@gmail.com</p>
+          <p class="text-muted small"><i class="bi bi-globe text-cyan me-1"></i> frontcrafweb1.netlify.app/</p>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary border-opacity-25 pt-3 text-center text-muted small">
+        © 2026 FrontCraft Web Solutions. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROMOTIONAL POPUP MODAL -->
+  <div class="fc-popup-backdrop" id="demoModal">
+    <div class="fc-popup-card">
+      <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" onclick="closeDemoModal()"></button>
+      <span class="badge-cyan mb-3"><i class="bi bi-stars"></i> FREE OFFER</span>
+      <h3 class="text-white mb-2">FREE WEBSITE CONCEPT / DEMO</h3>
+      <p class="text-light-cyan mb-3">
+        Share your business details and get a customized demo concept to preview how your online presence could look!
+      </p>
+
+      <ul class="list-unstyled text-muted small mb-4 d-flex flex-column gap-2">
+        <li><i class="bi bi-check2-circle text-cyan me-2"></i> Responsive Mobile Layout</li>
+        <li><i class="bi bi-check2-circle text-cyan me-2"></i> WhatsApp Lead Integration</li>
+        <li><i class="bi bi-check2-circle text-cyan me-2"></i> Contact & Enquiry Forms</li>
+        <li><i class="bi bi-check2-circle text-cyan me-2"></i> Fast Performance & Modern UI</li>
+      </ul>
+
+      <div class="d-flex flex-wrap gap-2">
+        <a href="https://wa.me/919104303934?text=Hello%20Tirth%2C%20I%20would%20like%20a%20Free%20Website%20Concept%20Demo%20for%20my%20business." target="_blank" class="btn-fc-primary flex-grow-1 justify-content-center">
+          <i class="bi bi-whatsapp"></i> Request Free Demo
+        </a>
+        <button onclick="closeDemoModal()" class="btn-fc-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING TRIGGER BUTTON -->
+  <button class="floating-demo-trigger" onclick="openDemoModal()">
+    <i class="bi bi-gift-fill"></i> Free Demo
+  </button>
+
+  <!-- JavaScript & Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Portfolio Filtering
+    function filterProjects(category, btn) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const items = document.querySelectorAll('.project-card-item');
+      items.forEach(item => {
+        const categories = item.getAttribute('data-category');
+        if (category === 'all' || categories.includes(category)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal Control with LocalStorage Logic
+    function openDemoModal() {
+      document.getElementById('demoModal').style.display = 'flex';
+    }
+
+    function closeDemoModal() {
+      document.getElementById('demoModal').style.display = 'none';
+      localStorage.setItem('fc_modal_dismissed', 'true');
+    }
+
+    // Auto show modal on first visit
+    window.addEventListener('load', function() {
+      const dismissed = localStorage.getItem('fc_modal_dismissed');
+      if (!dismissed) {
+        setTimeout(openDemoModal, 2500);
+      }
+    });
+
+    // Form Submission with WhatsApp Redirect
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('formName').value;
+      const business = document.getElementById('formBusiness').value;
+      const mobile = document.getElementById('formMobile').value;
+      const email = document.getElementById('formEmail').value;
+      const service = document.getElementById('formService').value;
+      const message = document.getElementById('formMessage').value;
+
+      let text = `*New Website Enquiry*\n\n`;
+      text += `*Name:* ${name}\n`;
+      if(business) text += `*Business:* ${business}\n`;
+      text += `*Mobile:* ${mobile}\n`;
+      if(email) text += `*Email:* ${email}\n`;
+      text += `*Service:* ${service}\n`;
+      text += `*Message:* ${message}`;
+
+      const waUrl = `https://wa.me/919104303934?text=${encodeURIComponent(text)}`;
+      window.open(waUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
